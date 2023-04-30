@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-
+import { Router } from '@angular/router';
+import { Users } from 'src/app/Models/UserData';
+//import { DataService } from '@progress/kendo-angular-dropdowns/common/data.service';
+import { DataManagementService } from 'src/app/Services/DataManagement/data-management.service';
 @Component({
   selector: 'app-profile-page',
   templateUrl: './profile-page.component.html',
@@ -10,22 +13,19 @@ export class ProfilePageComponent implements OnInit {
 
   registrationForm!: FormGroup;
   skills: string[] = ['HTML', 'CSS', 'JavaScript', 'Angular', 'React', 'Vue'];
-
-  constructor(private fb: FormBuilder) { 
+  userSkills : string[]  = ['HTML', 'CSS', 'JavaScript', 'Angular', 'React', 'Vue'];
+  user:Users;
+  constructor(private fb: FormBuilder,
+    private router : Router,
+    private dataService:DataManagementService) { 
+      let userEmail  = ""+localStorage.getItem("email") 
+       this.user = this.dataService.findUserByEmail(userEmail);
     console.log("Reg form aya")
   }
 
 
   ngOnInit() {
-    this.registrationForm = this.fb.group({
-      role: ['', Validators.required],
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      contact: ['', Validators.required],
-      skills: this.buildSkills(),
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', Validators.required]
-    }, { validator: this.passwordMatchValidator });
+
   }
 
 
@@ -47,5 +47,8 @@ onSubmit() {
   }
 
 }
+editUser(){
+  this.router.navigate(['user/userDash/editProfile'], { state: { email: localStorage.getItem("email") } })
+  }
 
 }

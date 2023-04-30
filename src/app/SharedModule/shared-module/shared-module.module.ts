@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { ProfilePageComponent } from '../Profile/profile-page/profile-page.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { JoinPipe } from 'src/app/Pipe/Join.pipe';
 
 const routes: Routes = [
   {
@@ -14,22 +15,23 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    HeaderComponent,
-    ProfilePageComponent
-  ],
-  imports: [ 
-    CommonModule,
-    RouterModule,
-    ReactiveFormsModule,
-    FormsModule,
-    TranslateModule,
-    RouterModule.forChild(routes),
-  ],
-  exports: [
-    HeaderComponent,
-    ProfilePageComponent
-  ]
+    declarations: [
+        HeaderComponent,
+        ProfilePageComponent
+    ],
+    exports: [
+        HeaderComponent,
+        ProfilePageComponent
+    ],
+    providers: [JoinPipe],
+    imports: [
+        CommonModule,
+        RouterModule,
+        ReactiveFormsModule,
+        FormsModule,
+        TranslateModule,
+        RouterModule.forChild(routes),
+    ]
 })
 
 export class SharedModuleModule {

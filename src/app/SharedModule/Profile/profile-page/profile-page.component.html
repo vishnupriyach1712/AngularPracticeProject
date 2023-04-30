@@ -1,52 +1,61 @@
+<div class="profileHeadContainer">
+<span>
+Profile Page
+<button class="editButton" (click)="editUser()">
+  Edit
+</button>
+</span>
+</div>
+
+
 <div class="register-container">
   <div class="registerSubContainer" id="test">
-    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-      <table>
+    <table>
         <tr>
           <td>
             <span>
                 Name:
                 <span>
-                    {{"test"}}
+                    {{user.userName}}
                 </span>
             </span>
           </td>
         </tr>
+        <tr>
           <td>
             <span>
                 Email:
                 <span>
-                    {{"test"}}
+                    {{user.email}}
                 </span>
             </span>
           </td>
-
+        </tr>
+        <tr>
           <td>
             <span>
-                Contact:
-                <span>
-                    {{"test"}}
-                </span>
+              Contact:
+              <span> {{user.contact}}
+              </span>
             </span>
-          </td>
-        
+           </td>
+        </tr>       
         <tr>
             <td>
                 <span>
                     Role:
                     <span>
-                        {{"test"}}
+                        {{user.role}}
                     </span>
                 </span>
               </td>
         </tr>
         <tr>
           Skills:
-          <span *ngFor="let skill of skills">
-            <span>{{ skill }}</span>
+          <span >
+            <span>{{user.skills}}</span>
           </span>
         </tr>
       </table>
-    </form>
   </div>
 </div>

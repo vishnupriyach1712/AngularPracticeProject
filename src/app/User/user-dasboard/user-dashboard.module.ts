@@ -1,9 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UserDashboardComponent } from './user-dashboard.component';
+import { UserDashboardComponent } from '../user-dashboard/user-dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModuleModule } from 'src/app/SharedModule/shared-module/shared-module.module';
 import { ProfilePageComponent } from 'src/app/SharedModule/Profile/profile-page/profile-page.component';
+import { AdminDashboardModule } from 'src/app/Admin/admin-dashboard-module/admin-dashboard.module';
+import { UserEditComponent } from '../user-edit/user-edit.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditUserComponent } from 'src/app/Admin/edit-user/edit-user.component';
 
 const routes: Routes = [
   {
@@ -13,6 +17,10 @@ const routes: Routes = [
       {
         path: 'profile',
         component: ProfilePageComponent,
+      },
+      {
+        path: 'editProfile',
+        component: UserEditComponent,
       }
     ]
   },
@@ -21,12 +29,16 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    UserDashboardComponent
+    UserDashboardComponent,
+    UserEditComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    SharedModuleModule
+    SharedModuleModule,
+    AdminDashboardModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class UserDashboardModule {

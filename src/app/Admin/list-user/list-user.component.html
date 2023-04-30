@@ -1,1 +1,26 @@
-<p>list-user works!</p>
+<div class="userGrid">
+    <kendo-grid 
+        [kendoGridBinding]="gridView"
+        kendoGridSelectBy="id"
+        [(selectedKeys)]="mySelection"
+        [pageSize]="10"
+        [pageable]="true"
+        [sortable]="true"
+        [groupable]="true"
+        [reorderable]="true"
+        [resizable]="true"
+        [height]="400"
+        [columnMenu]="{ filter: true }">
+
+        <kendo-grid-column field="userName" title="Name"> </kendo-grid-column>
+        <kendo-grid-column field="email" title="Email"> </kendo-grid-column>
+        <kendo-grid-column field="skills" title="Skill"> </kendo-grid-column>
+        <kendo-grid-column field="contact" title="Contact"> </kendo-grid-column>
+
+        <kendo-grid-column title="Edit" [width]="100">
+            <ng-template kendoGridCellTemplate let-dataItem>
+             <button class="k-button" (click)="editUser(dataItem)">Edit User</button>
+            </ng-template>
+        </kendo-grid-column>
+    </kendo-grid>
+</div>

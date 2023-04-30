@@ -29,10 +29,10 @@ export class LoginFormComponent implements OnInit {
       let user = this.authService.login(this.loginForm.value.email,this.loginForm.value.password);
       if(user.isAdmin == true)
       {
-        this.router.navigate(['adminDash/list'])
+        this.router.navigate(['admin/adminDash/list'])
       }
       else{
-        this.router.navigate(['user/userDash'])
+        this.router.navigate(['user/userDash/profile'])
       }
      // this.route.(['/home/register']);
     }

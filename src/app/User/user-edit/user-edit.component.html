@@ -1,0 +1,55 @@
+<div class="register-container">
+    <div class="registerSubContainer" id="test">
+      <form [formGroup]="registrationForm" >
+        <table>
+          <tr>
+            <td>
+              <label>
+                  Name:
+                  <input type="text" formControlName="userName" />
+                </label>
+            </td>
+            <td>
+              <label>
+                  Email:
+                  <input type="email" formControlName="email" />
+                </label>
+            </td>
+              <td>
+                  <label>
+                      Contact:
+                      <input type="text" formControlName="contact" />
+                    </label>
+              </td>
+      
+            
+          </tr>
+          <tr>
+              <td>
+                  <label>
+                      Role:
+                      <select formControlName="role">
+                        <option value="user"  [ngValue]="role">User</option>
+                        <option value="admin">Admin</option>
+                      </select>
+                    </label>
+      
+                </td>
+  
+          </tr>
+          <!-- <tr>
+              <td>
+                  Skills:
+                  <label *ngFor="let skill of skills">
+                    <input type="checkbox" [formControlName]="skill" />{{ skill }}
+                  </label>
+              </td>
+          </tr> -->
+        </table> 
+        <button type="submit"  (click)="updateUser()">
+          Update
+        </button>
+      </form>
+    </div>
+  </div>
+  

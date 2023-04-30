@@ -46,4 +46,27 @@ export class DataManagementService {
     })
     return retUser;
   }
+
+
+  updateUser(userdeatails: Users)
+  {
+    let retUser : Users ={
+      email:"null",
+      userName:"null",
+      password:"null",
+      isAdmin: false,
+      contact: "null",
+      skills :[],
+      role:""
+  };
+  for(let i = 0; i <this.users.length ; i++ )
+  {
+    if(this.users[i].email == userdeatails.email)
+    {
+      this.users[i] =  {...this.users[i], ...userdeatails}
+      return this.users[i];
+    }
+  }
+  return retUser;
+  }
 }

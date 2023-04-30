@@ -3,13 +3,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModuleModule } from './SharedModule/shared-module/shared-module.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule ,ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateSetupModule } from './TranslateModule/translate.module';
 import { DataManagementService } from './Services/DataManagement/data-management.service';
 import { UserDashboardComponent } from './User/user-dashboard/user-dashboard.component';
-import { ListUserComponent } from './Admin/list-user/list-user.component';
+import { JoinPipe } from './Pipe/Join.pipe';
+import { GridModule, PDFModule, ExcelModule } from '@progress/kendo-angular-grid';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EditUserComponent } from './Admin/edit-user/edit-user.component';
+
+
+
 
 
 export function initializeAppData(dataInitService: DataManagementService) {
@@ -21,7 +27,7 @@ export function initializeAppData(dataInitService: DataManagementService) {
 @NgModule({
   declarations: [
     AppComponent,
-    ListUserComponent,
+    JoinPipe
   ],
   imports: [
     BrowserModule,
@@ -29,12 +35,17 @@ export function initializeAppData(dataInitService: DataManagementService) {
     ReactiveFormsModule,
     RouterModule,
     HttpClientModule,
-    TranslateSetupModule
+    TranslateSetupModule,
+    GridModule,
+    ReactiveFormsModule,
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [ 
     DataManagementService,
     { provide: APP_INITIALIZER,useFactory: initializeAppData, deps: [DataManagementService], multi: true}
   ],
+  exports:[JoinPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
