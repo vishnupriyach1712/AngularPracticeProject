@@ -1,0 +1,52 @@
+<div class="register-container">
+  <div class="registerSubContainer" id="test">
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      <table>
+        <tr>
+          <td>
+            <span>
+                Name:
+                <span>
+                    {{"test"}}
+                </span>
+            </span>
+          </td>
+        </tr>
+          <td>
+            <span>
+                Email:
+                <span>
+                    {{"test"}}
+                </span>
+            </span>
+          </td>
+
+          <td>
+            <span>
+                Contact:
+                <span>
+                    {{"test"}}
+                </span>
+            </span>
+          </td>
+        
+        <tr>
+            <td>
+                <span>
+                    Role:
+                    <span>
+                        {{"test"}}
+                    </span>
+                </span>
+              </td>
+        </tr>
+        <tr>
+          Skills:
+          <span *ngFor="let skill of skills">
+            <span>{{ skill }}</span>
+          </span>
+        </tr>
+      </table>
+    </form>
+  </div>
+</div>

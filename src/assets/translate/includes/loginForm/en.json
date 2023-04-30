@@ -1,0 +1,10 @@
+ {
+    "loginForm" : {
+        "Login" : "Login",
+        "Email" : "Email",
+        "Password" : "Password",
+        "LoginButton" : "Login",
+        "Register" : "Need an account?",
+        "RegisterLink" : "Register"
+    }
+ }

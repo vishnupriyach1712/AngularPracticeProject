@@ -1,0 +1,17 @@
+<div class="header">
+  <div class="headerTitle">{{'header.WelcomeMessage' | translate}}</div>
+  <div>
+    <input class="toggle" type="checkbox" />
+  </div>
+  <div class="switchLang">
+    <ul>
+      <li>
+        <a  [class.active] = "switchLang == 'en'" (click)="selectLanguage('en')"> EN </a>
+      </li>
+      <li> | </li>
+      <li>
+        <a [class.active] = "switchLang == 'hin'"  (click)="selectLanguage('hin')"> HIN </a>
+      </li>
+    </ul>
+  </div>
+</div>

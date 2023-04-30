@@ -1,0 +1,10 @@
+{
+    "loginForm" : {
+        "Login" : "लॉग इन",
+        "Email" : "ईमेल",
+        "Password" : "पासवर्ड",
+        "LoginButton" : "लॉग इन करें",
+        "Register" : "नया अकाउंट",
+        "RegisterLink" : "बनाएँ"
+    }
+ }
