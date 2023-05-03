@@ -1,5 +1,5 @@
 <div class="register-container">
-  <div class="registerSubContainer" id="test">
+  <div class="registerSubContainer" >
     <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
       <table>
         <tr>
@@ -39,10 +39,22 @@
         </tr>
         <tr>
             <td>
-                Skills:
+                <!-- Skills:
                 <label *ngFor="let skill of skills">
                   <input type="checkbox" [formControlName]="skill" />{{ skill }}
-                </label>
+                </label> -->
+
+                <label>Skills:</label>
+                <div formGroupName="skills">
+                  <label><input type="checkbox" formControlName="HTML">HTML </label>
+                  <label><input type="checkbox" formControlName="CSS">CSS </label>
+                  <label><input type="checkbox" formControlName="JavaScript">JavaScript</label>
+                  <label><input type="checkbox" formControlName="Angular">Angular</label>
+                  <label><input type="checkbox" formControlName="React">React</label>
+                  <label><input type="checkbox" formControlName="Vue">Vue</label>
+                </div>
+
+
             </td>
         </tr>
       </table>
@@ -67,3 +79,4 @@
     </form>
   </div>
 </div>
+

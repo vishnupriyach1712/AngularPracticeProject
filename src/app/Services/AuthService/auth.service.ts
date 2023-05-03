@@ -16,7 +16,7 @@ export class AuthService {
   login(userName: string, password: string) {
     let user = this.dataManagemnetService.findUserByEmail(userName);
     if (user.password!= "null" && user.password == password) {
-      let expTime = Date.now() + 10000;
+      let expTime = Date.now() + 3600000;
       localStorage.setItem('email',user.email);
       localStorage.setItem('expireTime', expTime.toString());
       localStorage.setItem('userName', user.userName);

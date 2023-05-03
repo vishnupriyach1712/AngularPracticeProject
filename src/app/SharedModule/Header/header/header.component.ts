@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { facebookBoxIcon } from '@progress/kendo-svg-icons';
 import { ChangeLanguageService } from 'src/app/Services/Language/change-language.service';
 
 @Component({
@@ -8,12 +10,15 @@ import { ChangeLanguageService } from 'src/app/Services/Language/change-language
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
+  isLoggedin : boolean
   switchLang: string;
   browserLang: string;
   constructor(
     private langService: ChangeLanguageService,
-    public translate: TranslateService
+    public translate: TranslateService,
+    private router:Router 
   ) {
+    this.isLoggedin = localStorage.getItem("email") ? true : false;
     translate.addLangs(['en', 'hin']);
     translate.setDefaultLang('en');
     translate.use('en');
@@ -26,6 +31,14 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  logout()
+  {
+    console.log("loggedout!!!")
+    this.isLoggedin = false;
+    localStorage.clear();
+    this.router.navigate(["/home/login"]);
+  }
 
   selectLanguage(languageCode: string) {
     console.log(languageCode);

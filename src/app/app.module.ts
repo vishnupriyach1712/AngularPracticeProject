@@ -18,6 +18,7 @@ import { EditUserComponent } from './Admin/edit-user/edit-user.component';
 
 
 
+
 export function initializeAppData(dataInitService: DataManagementService) {
   return (): Promise<any> => { 
     return dataInitService.Init();
@@ -27,7 +28,8 @@ export function initializeAppData(dataInitService: DataManagementService) {
 @NgModule({
   declarations: [
     AppComponent,
-    JoinPipe
+    JoinPipe,
+
   ],
   imports: [
     BrowserModule,

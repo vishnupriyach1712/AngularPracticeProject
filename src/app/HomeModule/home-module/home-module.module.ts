@@ -8,6 +8,7 @@ import { SharedModuleModule } from 'src/app/SharedModule/shared-module/shared-mo
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { TranslateSetupModule } from 'src/app/TranslateModule/translate.module';
+import { TooltipDirective } from 'src/app/Directive/tooltip.drective';
 
 const routes: Routes = [
 
@@ -22,9 +23,27 @@ const routes: Routes = [
         {
            path: 'register',
            component: RegisterUserFormComponent
-        }
+        },
+        {
+          path: '',
+          pathMatch:"full",
+          redirectTo: "login",
+       },
     ]
+  },
+  {
+    path: '',
+    pathMatch:"full",
+    component: HomePageComponent,
+    children: [
+      {
+        path: '',
+        pathMatch:"full",
+        redirectTo: "/home/login",
+         }
+  ]
   }
+
 ];
 
 

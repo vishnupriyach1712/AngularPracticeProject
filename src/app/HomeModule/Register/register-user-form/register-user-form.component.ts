@@ -10,11 +10,8 @@ export class RegisterUserFormComponent implements OnInit {
 
   registrationForm!: FormGroup;
   skills: string[] = ['HTML', 'CSS', 'JavaScript', 'Angular', 'React', 'Vue'];
-
-  constructor(private fb: FormBuilder) { 
-    console.log("Reg form aya")
-  }
-
+  selectedSkills: string[] = [];
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
     this.registrationForm = this.fb.group({
@@ -22,19 +19,29 @@ export class RegisterUserFormComponent implements OnInit {
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       contact: ['', Validators.required],
-      skills: this.buildSkills(),
+      skills: this.fb.group({
+        HTML: [false],
+        CSS: [false],
+        JavaScript: [false],
+        Angular: [false],
+        React: [false],
+        Vue: [false]
+      }),
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', Validators.required]
     }, { validator: this.passwordMatchValidator });
+    this.registrationForm.get('skills')?.valueChanges.subscribe(val => {
+      this.selectedSkills = Object.keys(val).filter(key => val[key]);
+    });
   }
 
 
-buildSkills() {
-  const skillsArr = this.skills.map(skill => {
-    return this.fb.control(false);
-  });
-  return this.fb.array(skillsArr);
-}
+// buildSkills() {
+//   const skillsArr = this.skills.map(skill => {
+//     return this.fb.control(false);
+//   });
+//   return this.fb.array(skillsArr);
+// }
 
 passwordMatchValidator(frm: FormGroup) {
   return frm.controls['password'].value === frm.controls['confirmPassword'].value ? null : {'mismatch': true};
@@ -43,7 +50,7 @@ passwordMatchValidator(frm: FormGroup) {
 onSubmit() {
   if (this.registrationForm.valid) {
     console.log(this.registrationForm.value);
-    // You can send the registration
+   console.log(this.registrationForm.value)
   }
 
 }

@@ -7,7 +7,7 @@ import { LoginFormComponent } from './HomeModule/Login/login-form/login-form.com
 const routes: Routes = [
   {
     path: 'admin',
-    //canActivate : [AuthgaurdGuard],
+    canActivate : [AuthgaurdGuard],
     data:{role:"admin"},
     loadChildren: () => import('./Admin/admin-dashboard-module/admin-dashboard.module').then(m => m.AdminDashboardModule),
     pathMatch: 'prefix'
@@ -15,7 +15,8 @@ const routes: Routes = [
   },
   {
     path: 'user',
-    //canActivate : [AuthgaurdGuard],
+    canActivate : [AuthgaurdGuard],
+    data:{role:"user"},
     loadChildren: () => import('./User/user-dasboard/user-dashboard.module').then(m => m.UserDashboardModule),
     pathMatch: 'prefix'
   },

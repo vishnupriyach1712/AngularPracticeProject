@@ -1,3 +1,5 @@
+
+
 .header{
     /* position: fixed; */
     background: rgba(255, 255, 255, 0.3);
@@ -9,7 +11,7 @@
 
 .headerTitle{
    position: relative;
-    top: 25%;
+    top: 20%;
     left: 45%;
     color: white;
     font-size: 20px;
@@ -71,16 +73,18 @@
 
   .toggle{
     float: right;
-    margin-right: 20px;
-    position: relative;
-    top: -15px;
+  margin-right: 20px;
+  /* top: 20px; */
+  /* position: absolute; */
+  top: 8px;
 }
+
 
 .language{
     float :right;
     margin-right: 20px;
-    top: 20px;
-    position: relative;
+    top: 33px;
+    position: absolute;
     top: -6px;
 }
 
@@ -94,11 +98,85 @@ ul li{
 }
 
 .switchLang{
-  float: right;
-  top: -23px;
-  position: relative;
+  float: left;
+  top: 30px;
+  position: absolute;
   padding-right: 10px;
   font-weight: bold;
+}
+
+.logout {
+  float: right;
+    /* top: 14px; */
+    font-size: 18px;
+    position: relative;
+    font-weight: bold;
+    padding-right: 20px;
+    top: -10px;
+    position: relative;
+}
+
+.tooltip-example {
+  text-align: center;
+  padding: 0 50px;
+}
+.tooltip-example [tooltip] {
+  display: inline-block;
+  margin: 50px 20px;
+  width: 180px;
+  height: 50px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  line-height: 50px;
+  text-align: center;
+}
+.ng-tooltip {
+  position: absolute;
+  max-width: 150px;
+  font-size: 14px;
+  text-align: center;
+  color: #f8f8f2;
+  padding: 3px 8px;
+  background: #282a36;
+  border-radius: 4px;
+  z-index: 1000;
+  opacity: 0;
+}
+.ng-tooltip:after {
+  content: "";
+  position: absolute;
+  border-style: solid;
+}
+.ng-tooltip-top:after {
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-color: black transparent transparent transparent;
+}
+.ng-tooltip-bottom:after {
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-color: transparent transparent black transparent;
+}
+.ng-tooltip-left:after {
+  top: 50%;
+  left: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-color: transparent transparent transparent black;
+}
+.ng-tooltip-right:after {
+  top: 50%;
+  right: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-color: transparent black transparent transparent;
+}
+.ng-tooltip-show {
+  opacity: 1;
 }
 
   

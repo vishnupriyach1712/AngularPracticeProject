@@ -30,13 +30,16 @@ export class AuthgaurdGuard implements CanActivate {
       );
       if (localStorage.getItem('isAdmin') != 'true') {
         console.log('auth failed!!');
+        this.router.navigate(["/home/login"]);
         return false;
       }
     }
     let expireTime = parseInt(this.auth.IsLoggedIn());
-    console.log('currenttime and expireTime', Date.now, expireTime);
+    console.log('currenttime and expireTime', Date.now(), expireTime);
     if (expireTime < Date.now()) {
+      console.log("token expired !!!!!")
       localStorage.clear();
+      this.router.navigate(["/home/login"]);
       return false;
     }
     return true;

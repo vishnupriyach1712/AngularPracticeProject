@@ -6,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProfilePageComponent } from '../Profile/profile-page/profile-page.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { JoinPipe } from 'src/app/Pipe/Join.pipe';
-
+import { TooltipDirective } from 'src/app/Directive/tooltip.drective';
 const routes: Routes = [
   {
     path: 'profile',
@@ -17,7 +17,8 @@ const routes: Routes = [
 @NgModule({
     declarations: [
         HeaderComponent,
-        ProfilePageComponent
+        ProfilePageComponent,
+        TooltipDirective
     ],
     exports: [
         HeaderComponent,

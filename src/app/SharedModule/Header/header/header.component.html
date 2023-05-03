@@ -1,8 +1,13 @@
+<head>
+  <title>Font Awesome Icons</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
 <div class="header">
   <div class="headerTitle">{{'header.WelcomeMessage' | translate}}</div>
-  <div>
+  <!-- <div>
     <input class="toggle" type="checkbox" />
-  </div>
+  </div> -->
   <div class="switchLang">
     <ul>
       <li>
@@ -14,4 +19,16 @@
       </li>
     </ul>
   </div>
+
+  <div class="logout" *ngIf="isLoggedin"  >
+    <span (click)="logout()">
+      <!-- <i class="fa fa-sign-out" style="font-size:24px"></i> -->
+      <div class=".tooltip-example">
+        <i class="fa fa-sign-out" style="font-size:24px" tooltip="logout" placement="bottom" delay="500"></i>
+    </div>
+       
+          
+    </span>
+  </div>
 </div>
+""
