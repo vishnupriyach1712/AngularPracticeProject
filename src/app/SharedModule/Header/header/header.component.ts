@@ -10,21 +10,21 @@ import { ChangeLanguageService } from 'src/app/Services/Language/change-language
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  isLoggedin : boolean
+  isLoggedin: boolean;
   switchLang: string;
   browserLang: string;
   constructor(
     private langService: ChangeLanguageService,
     public translate: TranslateService,
-    private router:Router 
+    private router: Router
   ) {
-    this.isLoggedin = localStorage.getItem("email") ? true : false;
+    this.isLoggedin = localStorage.getItem('email') ? true : false;
     translate.addLangs(['en', 'hin']);
     translate.setDefaultLang('en');
     translate.use('en');
     this.browserLang = translate.getDefaultLang();
     this.languageChanged();
-    this.langService.selectedLanguage.next(this.browserLang)
+    this.langService.selectedLanguage.next(this.browserLang);
     this.langService.selectedLanguage.subscribe((res) => {
       this.switchLang = res;
     });
@@ -32,21 +32,22 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  logout()
-  {
-    console.log("loggedout!!!")
+  logout() {
+    console.log('loggedout!!!');
     this.isLoggedin = false;
     localStorage.clear();
-    this.router.navigate(["/home/login"]);
+    this.router.navigate(['/home/login']);
   }
 
   selectLanguage(languageCode: string) {
     console.log(languageCode);
     this.langService.selectedLanguage.next(languageCode);
-    this.translate.use(this.langService.selectedLanguage.value)
+    this.translate.use(this.langService.selectedLanguage.value);
   }
 
-  languageChanged(){
-    this.translate.use( this.browserLang.match(/en|hin/) ? this.browserLang :'en')
+  languageChanged() {
+    this.translate.use(
+      this.browserLang.match(/en|hin/) ? this.browserLang : 'en'
+    );
   }
 }

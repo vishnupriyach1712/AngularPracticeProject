@@ -11,48 +11,44 @@ import { TranslateSetupModule } from 'src/app/TranslateModule/translate.module';
 import { TooltipDirective } from 'src/app/Directive/tooltip.drective';
 
 const routes: Routes = [
-
   {
     path: 'home',
     component: HomePageComponent,
     children: [
-        {
-           path: 'login',
-           component: LoginFormComponent,
-        },
-        {
-           path: 'register',
-           component: RegisterUserFormComponent
-        },
-        {
-          path: '',
-          pathMatch:"full",
-          redirectTo: "login",
-       },
-    ]
+      {
+        path: 'login',
+        component: LoginFormComponent,
+      },
+      {
+        path: 'register',
+        component: RegisterUserFormComponent,
+      },
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'login',
+      },
+    ],
   },
   {
     path: '',
-    pathMatch:"full",
+    pathMatch: 'full',
     component: HomePageComponent,
     children: [
       {
         path: '',
-        pathMatch:"full",
-        redirectTo: "/home/login",
-         }
-  ]
-  }
-
+        pathMatch: 'full',
+        redirectTo: '/home/login',
+      },
+    ],
+  },
 ];
-
 
 @NgModule({
   declarations: [
     LoginFormComponent,
     HomePageComponent,
     RegisterUserFormComponent,
-
   ],
   imports: [
     CommonModule,
@@ -60,10 +56,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     SharedModuleModule,
     TranslateSetupModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
   ],
-  exports :[
-    HomePageComponent,
-  ]
+  exports: [HomePageComponent],
 })
-export class HomeModuleModule { }
+export class HomeModuleModule {}

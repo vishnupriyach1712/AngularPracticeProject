@@ -15,28 +15,20 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    declarations: [
-        HeaderComponent,
-        ProfilePageComponent,
-        TooltipDirective
-    ],
-    exports: [
-        HeaderComponent,
-        ProfilePageComponent
-    ],
-    providers: [JoinPipe],
-    imports: [
-        CommonModule,
-        RouterModule,
-        ReactiveFormsModule,
-        FormsModule,
-        TranslateModule,
-        RouterModule.forChild(routes),
-    ]
+  declarations: [HeaderComponent, ProfilePageComponent, TooltipDirective],
+  exports: [HeaderComponent, ProfilePageComponent],
+  providers: [JoinPipe],
+  imports: [
+    CommonModule,
+    RouterModule,
+    ReactiveFormsModule,
+    FormsModule,
+    TranslateModule,
+    RouterModule.forChild(routes),
+  ],
 })
-
 export class SharedModuleModule {
-  constructor(){
-    console.log("Shared dashboard loaded")
+  constructor() {
+    console.log('Shared dashboard loaded');
   }
- }
+}

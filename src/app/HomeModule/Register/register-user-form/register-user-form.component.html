@@ -1,61 +1,69 @@
 <div class="register-container">
-  <div class="registerSubContainer" >
+  <div class="registerSubContainer">
     <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
       <table>
         <tr>
           <td>
             <label>
-                Name:
-                <input type="text" formControlName="name" />
-              </label>
+              Name:
+              <input type="text" formControlName="name" />
+            </label>
           </td>
           <td>
             <label>
-                Email:
-                <input type="email" formControlName="email" />
-              </label>
+              Email:
+              <input type="email" formControlName="email" />
+            </label>
           </td>
-            <td>
-                <label>
-                    Contact:
-                    <input type="text" formControlName="contact" />
-                  </label>
-            </td>
-    
-          
+          <td>
+            <label>
+              Contact:
+              <input type="text" formControlName="contact" />
+            </label>
+          </td>
         </tr>
         <tr>
-            <td>
-                <label>
-                    Role:
-                    <select formControlName="role">
-                      <option value="user">User</option>
-                      <option value="admin">Admin</option>
-                    </select>
-                  </label>
-    
-              </td>
-
+          <td>
+            <label>
+              Role:
+              <select formControlName="role">
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+              </select>
+            </label>
+          </td>
         </tr>
         <tr>
-            <td>
-                <!-- Skills:
+          <td>
+            <!-- Skills:
                 <label *ngFor="let skill of skills">
                   <input type="checkbox" [formControlName]="skill" />{{ skill }}
                 </label> -->
 
-                <label>Skills:</label>
-                <div formGroupName="skills">
-                  <label><input type="checkbox" formControlName="HTML">HTML </label>
-                  <label><input type="checkbox" formControlName="CSS">CSS </label>
-                  <label><input type="checkbox" formControlName="JavaScript">JavaScript</label>
-                  <label><input type="checkbox" formControlName="Angular">Angular</label>
-                  <label><input type="checkbox" formControlName="React">React</label>
-                  <label><input type="checkbox" formControlName="Vue">Vue</label>
-                </div>
-
-
-            </td>
+            <label>Skills:</label>
+            <div formGroupName="skills">
+              <label
+                ><input type="checkbox" formControlName="HTML" />HTML
+              </label>
+              <label><input type="checkbox" formControlName="CSS" />CSS </label>
+              <label
+                ><input
+                  type="checkbox"
+                  formControlName="JavaScript"
+                />JavaScript</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  formControlName="Angular"
+                />Angular</label
+              >
+              <label
+                ><input type="checkbox" formControlName="React" />React</label
+              >
+              <label><input type="checkbox" formControlName="Vue" />Vue</label>
+            </div>
+          </td>
         </tr>
       </table>
 
@@ -79,4 +87,3 @@
     </form>
   </div>
 </div>
-

@@ -7,23 +7,8 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-
-  // currentLanguage: any = 'en';  
-  // languageCode = 'en';  
-  // constructor(public translate: TranslateService,) { }  
-  // languages = [  
-  //   { 'languageCode': 'en', 'languageName': 'English' },  
-  //   { 'languageCode': 'hi', 'languageName': 'Hindi' },  
-  //   { 'languageCode': 'ar', 'languageName': 'Arabic' }  
-  // ]  
   
   ngOnInit() {  
   }  
-
-  // languageChange($event) {  
-  //   debugger;  
-  //   this.currentLanguage = $event;  
-  //   this.translate.use(this.currentLanguage);  
-  // }  
 
 }

@@ -4,13 +4,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminDashboardComponent } from '../admin-dashboard/admin-dashboard.component';
 import { SharedModuleModule } from 'src/app/SharedModule/shared-module/shared-module.module';
 import { ListUserComponent } from '../list-user/list-user.component';
-import { ExcelModule, GridModule, PDFModule } from '@progress/kendo-angular-grid';
+import {
+  ExcelModule,
+  GridModule,
+  PDFModule,
+} from '@progress/kendo-angular-grid';
 import { HttpClientModule } from '@angular/common/http';
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { EditUserComponent } from 'src/app/Admin/edit-user/edit-user.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
 
 const routes: Routes = [
   {
@@ -24,17 +26,13 @@ const routes: Routes = [
       {
         path: 'editUser',
         component: EditUserComponent,
-      }
-    ]
+      },
+    ],
   },
 ];
 
 @NgModule({
-  declarations: [
-    AdminDashboardComponent,
-    ListUserComponent,
-    EditUserComponent
-  ],
+  declarations: [AdminDashboardComponent, ListUserComponent, EditUserComponent],
   imports: [
     CommonModule,
     SharedModuleModule,
@@ -46,10 +44,10 @@ const routes: Routes = [
     PDFModule,
     ExcelModule,
     RouterModule.forChild(routes),
-  ]
+  ],
 })
-export class AdminDashboardModule { 
-  constructor(){
-    console.log("Admin dashboard loaded")
+export class AdminDashboardModule {
+  constructor() {
+    console.log('Admin dashboard loaded');
   }
 }

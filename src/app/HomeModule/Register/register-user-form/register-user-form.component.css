@@ -1,9 +1,9 @@
 .register-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* height: 100vh; */
-    margin: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
+  margin: 50px;
 }
 
 .loginButton {
@@ -85,4 +85,3 @@ button:hover:not(:disabled) {
   display: inline-block;
   margin-right: 5px;
 }
-

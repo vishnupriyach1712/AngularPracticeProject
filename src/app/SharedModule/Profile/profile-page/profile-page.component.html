@@ -1,61 +1,57 @@
 <div class="profileHeadContainer">
-<span>
-Profile Page
-<button class="editButton" (click)="editUser()">
-  Edit
-</button>
-</span>
+  <span>
+    Profile Page
+    <button class="editButton" (click)="editUser()">Edit</button>
+  </span>
 </div>
-
 
 <div class="register-container">
   <div class="registerSubContainer" id="test">
     <table>
-        <tr>
-          <td>
+      <tr>
+        <td>
+          <span>
+            Name:
             <span>
-                Name:
-                <span>
-                    {{user.userName}}
-                </span>
+              {{ user.userName }}
             </span>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <span>
-                Email:
-                <span>
-                    {{user.email}}
-                </span>
-            </span>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <span>
-              Contact:
-              <span> {{user.contact}}
-              </span>
-            </span>
-           </td>
-        </tr>       
-        <tr>
-            <td>
-                <span>
-                    Role:
-                    <span>
-                        {{user.role}}
-                    </span>
-                </span>
-              </td>
-        </tr>
-        <tr>
-          Skills:
-          <span >
-            <span>{{user.skills}}</span>
           </span>
-        </tr>
-      </table>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span>
+            Email:
+            <span>
+              {{ user.email }}
+            </span>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span>
+            Contact:
+            <span> {{ user.contact }} </span>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span>
+            Role:
+            <span>
+              {{ user.role }}
+            </span>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        Skills:
+        <span>
+          <span>{{ user.skills }}</span>
+        </span>
+      </tr>
+    </table>
   </div>
 </div>

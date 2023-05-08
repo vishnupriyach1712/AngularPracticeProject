@@ -21,28 +21,24 @@ const routes: Routes = [
       {
         path: 'editProfile',
         component: UserEditComponent,
-      }
-    ]
+      },
+    ],
   },
 ];
 
-
 @NgModule({
-  declarations: [
-    UserDashboardComponent,
-    UserEditComponent
-  ],
+  declarations: [UserDashboardComponent, UserEditComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     SharedModuleModule,
     AdminDashboardModule,
     ReactiveFormsModule,
-    FormsModule
-  ]
+    FormsModule,
+  ],
 })
 export class UserDashboardModule {
-  constructor(){
-    console.log("User dashboard loaded")
+  constructor() {
+    console.log('User dashboard loaded');
   }
- }
+}

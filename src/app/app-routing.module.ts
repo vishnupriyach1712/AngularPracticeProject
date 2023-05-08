@@ -7,31 +7,36 @@ import { LoginFormComponent } from './HomeModule/Login/login-form/login-form.com
 const routes: Routes = [
   {
     path: 'admin',
-    canActivate : [AuthgaurdGuard],
-    data:{role:"admin"},
-    loadChildren: () => import('./Admin/admin-dashboard-module/admin-dashboard.module').then(m => m.AdminDashboardModule),
-    pathMatch: 'prefix'
-    
+    canActivate: [AuthgaurdGuard],
+    data: { role: 'admin' },
+    loadChildren: () =>
+      import('./Admin/admin-dashboard-module/admin-dashboard.module').then(
+        (m) => m.AdminDashboardModule
+      ),
+    pathMatch: 'prefix',
   },
   {
     path: 'user',
-    canActivate : [AuthgaurdGuard],
-    data:{role:"user"},
-    loadChildren: () => import('./User/user-dasboard/user-dashboard.module').then(m => m.UserDashboardModule),
-    pathMatch: 'prefix'
+    canActivate: [AuthgaurdGuard],
+    data: { role: 'user' },
+    loadChildren: () =>
+      import('./User/user-dasboard/user-dashboard.module').then(
+        (m) => m.UserDashboardModule
+      ),
+    pathMatch: 'prefix',
   },
   {
     path: '',
-    loadChildren: () => import('./HomeModule/home-module/home-module.module').then(m => m.HomeModuleModule),
-    pathMatch: 'prefix'
+    loadChildren: () =>
+      import('./HomeModule/home-module/home-module.module').then(
+        (m) => m.HomeModuleModule
+      ),
+    pathMatch: 'prefix',
   },
 ];
 
 @NgModule({
-  imports: [
-  RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
-
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}
