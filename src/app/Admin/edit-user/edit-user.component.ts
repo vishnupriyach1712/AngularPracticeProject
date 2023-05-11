@@ -52,8 +52,6 @@ export class EditUserComponent implements OnInit {
     return isSelected;
   }
 
-
-
   passwordMatchValidator(frm: FormGroup) {
     return frm.controls['password'].value ===
       frm.controls['confirmPassword'].value
