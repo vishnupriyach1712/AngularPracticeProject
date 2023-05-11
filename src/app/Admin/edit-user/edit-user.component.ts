@@ -54,8 +54,9 @@ export class EditUserComponent implements OnInit {
     if (this.registrationForm.valid) {
       console.log(this.registrationForm.value);
       console.log(this.dataService.updateUser(this.registrationForm.value));
+      let info= JSON.parse(localStorage.getItem('loginInfo') || '{}')
       this.router.navigate(['admin/adminDash/list'], {
-        state: { email: localStorage.getItem('email') },
+        state: { email: info.email },
       });
     }
   }

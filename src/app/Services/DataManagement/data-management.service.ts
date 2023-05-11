@@ -42,12 +42,14 @@ export class DataManagementService {
       skills: [],
       role: '',
     };
-
+    console.log("yahain call nahi ho raghi hai pata nahi kyuuu");
     this.users.forEach((user) => {
       if (user.email == email) {
         retUser = user;
+        localStorage.setItem('currentUserInfo', JSON.stringify(retUser))
       }
     });
+
     return retUser;
   }
 

@@ -26,8 +26,11 @@ export class ProfilePageComponent implements OnInit {
     private router: Router,
     private dataService: DataManagementService
   ) {
-    let userEmail = '' + localStorage.getItem('email');
-    this.user = this.dataService.findUserByEmail(userEmail);
+    let info= JSON.parse(localStorage.getItem('loginInfo') || '{}');
+    let userEmail = '' + info.email;
+    let userData = JSON.parse(localStorage.getItem('currentUserInfo') || '{}');
+
+    this.user = this.dataService.findUserByEmail(userEmail) ? this.dataService.findUserByEmail(userEmail) : userData;
     console.log('Reg form aya');
   }
 
@@ -53,8 +56,9 @@ export class ProfilePageComponent implements OnInit {
     }
   }
   editUser() {
+    let info= JSON.parse(localStorage.getItem('loginInfo') || '{}')
     this.router.navigate(['user/userDash/editProfile'], {
-      state: { email: localStorage.getItem('email') },
+      state: { email: info.email },
     });
   }
 }

@@ -11,6 +11,8 @@ import { ChangeLanguageService } from 'src/app/Services/Language/change-language
 })
 export class HeaderComponent implements OnInit {
   isLoggedin: boolean;
+  userName : string;
+  showUsername = ""
   switchLang: string;
   browserLang: string;
   constructor(
@@ -18,7 +20,14 @@ export class HeaderComponent implements OnInit {
     public translate: TranslateService,
     private router: Router
   ) {
-    this.isLoggedin = localStorage.getItem('email') ? true : false;
+    let info= JSON.parse(localStorage.getItem('loginInfo') || '{}')
+    this.isLoggedin = info.email ? true : false;
+    let userData = JSON.parse(localStorage.getItem('currentUserInfo') || '{}');
+    console.log("ye hai user data", userData) 
+    this.userName = userData.userName
+    if(this.userName){
+      this.showUsername = "," + " " + this.userName
+    }
     translate.addLangs(['en', 'hin']);
     translate.setDefaultLang('en');
     translate.use('en');

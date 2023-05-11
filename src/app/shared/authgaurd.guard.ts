@@ -23,12 +23,14 @@ export class AuthgaurdGuard implements CanActivate {
     | boolean
     | UrlTree {
     console.log('auth gaurd called', route.data['role']);
+    let info= JSON.parse(localStorage.getItem('loginInfo') || '{}');
     if (route.data['role'] == 'admin') {
       console.log(
         'localStorage.getItem("isAdmin")  != "true"',
-        localStorage.getItem('isAdmin')
+        info.isAdmin
       );
-      if (localStorage.getItem('isAdmin') != 'true') {
+      
+      if (info.isAdmin != 'true') {
         console.log('auth failed!!');
         this.router.navigate(["/home/login"]);
         return false;
